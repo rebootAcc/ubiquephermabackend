@@ -22,6 +22,7 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const moleculeRoutes = require("./routes/moleculeRoutes");
 const strengthRoutes = require("./routes/strengthRoutes");
 const packagingsizeRoutes = require("./routes/packagingsizeRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 app.use(cors());
 
@@ -36,6 +37,7 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/molecules", moleculeRoutes);
 app.use("/api/strengths", strengthRoutes);
 app.use("/api/packagingsize", packagingsizeRoutes);
+app.use("/api", userRoutes);
 
 app.listen(port, () => {
   console.log(`Port starts on  ${port}`);
