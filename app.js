@@ -41,6 +41,8 @@ app.use("/api/packagingsize", packagingsizeRoutes);
 app.use("/api", userRoutes);
 app.use("/api/products", productRoutes);
 
+app.get("/", (req, res) => res.send("WelCome to Ubiqurpherma Server."));
+
 app.listen(port, () => {
   console.log(`Port starts on  ${port}`);
 });
