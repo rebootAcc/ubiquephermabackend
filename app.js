@@ -8,7 +8,7 @@ const path = require("path");
 const fileUpload = require("express-fileupload");
 const MongoDbConnect = require("./connection");
 const port = process.env.PORT;
-const tempDir = path.join(__dirname, "temp");
+const tempDir = process.env.VERCEL ? "/tmp/temp" : path.join(__dirname, "temp");
 
 if (!fs.existsSync(tempDir)) {
   fs.mkdirSync(tempDir, { recursive: true });
