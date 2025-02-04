@@ -8,7 +8,7 @@ const path = require("path");
 const fileUpload = require("express-fileupload");
 const MongoDbConnect = require("./connection");
 const port = process.env.PORT;
-const tempDir = process.env.VERCEL ? "/tmp/temp" : path.join(__dirname, "temp");
+const tempDir = process.env.VERCEL ? "/tmp" : path.join(__dirname, "temp");
 
 if (!fs.existsSync(tempDir)) {
   fs.mkdirSync(tempDir, { recursive: true });
@@ -29,7 +29,7 @@ app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(fileUpload({ useTempFiles: true, tempFileDir: "/temp/" }));
+app.use(fileUpload({ useTempFiles: true, tempFileDir: tempDir }));
 app.use(bodyParser.json());
 
 app.use("/api/sliders", sliderRoutes);
