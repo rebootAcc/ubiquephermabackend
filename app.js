@@ -25,7 +25,7 @@ const packagingsizeRoutes = require("./routes/packagingsizeRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
